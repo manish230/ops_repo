@@ -1,0 +1,11 @@
+import java.text.SimpleDateFormat
+    @Library('opsdeploy@master')_
+    def dateFormat = new SimpleDateFormat("yyyyMMddHHmm")
+    def date = new Date()
+    def timestamp = dateFormat.format(date)
+    def tweak = new opsdeploy()
+node{
+        if("${app_branch}"){
+            tweak.buildNdeploy("${app_branch}","spring3hibernate",timestamp)
+        }
+}
