@@ -2,10 +2,18 @@ import java.text.SimpleDateFormat
     @Library('opsdeploy@master')_
     def dateFormat = new SimpleDateFormat("yyyyMMddHHmm")
     def date = new Date()
+    def server = "localhost"
+    def server_name = server.replaceAll("\\-", "_")
     def timestamp = dateFormat.format(date)
-    def tweak = new opsdeploy()
+    def tweak = new trips3m()
 node{
+    properties([
+        parameters([
+            string(name: app_branch')
+        ])
+    ]) 
+
         if("${app_branch}"){
-            tweak.buildNdeploy("${app_branch}","spring3hibernate",timestamp)
+            tweak.buildNdeploy("${app_branch}","spring3hibernate",server_name,timestamp)
         }
 }
