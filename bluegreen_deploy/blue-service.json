@@ -1,11 +1,11 @@
 {
     "cluster": "ops-springapp",
-    "serviceName": "service-blue1",
-    "taskDefinition": "blue-springapp",
+    "serviceName": "Springapp_service",
+    "taskDefinition": "Springapp",
     "loadBalancers": [
         {
-            "targetGroupArn": "arn:aws:elasticloadbalancing:us-east-1:876658555074:targetgroup/ops-blue/887fb9e6e6243a41",
-            "containerName": "blueapp",
+            "targetGroupArn": "arn:aws:elasticloadbalancing:us-east-1:876658555074:targetgroup/ops-green/887fb9e6e6243a41",
+            "containerName": "springapp",
             "containerPort": 8080
         }
     ],

@@ -1,7 +1,9 @@
 ---
+- name: updateing service and task definition files
+  shell: "sh modify_task.sh {{ blue_tg_arn }} {{ green_tg_arn }} {{ role }}"
 
 - name: registering new tasak definition
-  shell: "aws ecs register-task-definition --cli-input-json file:///home/ubuntu/ops_repo/bluegreen_deploy/task_definition.json"
+  shell: "aws ecs register-task-definition --cli-input-json file://{{ task_def_file }}"
 
 - name: creating new service 
-  shell: "aws ecs create-service  --cli-input-json file:///home/ubuntu/ops_repo/bluegreen_deploy/blue-service.json"
+  shell: "aws ecs create-service  --cli-input-json file://{{ svc_def_file }}"

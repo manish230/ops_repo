@@ -1,7 +1,7 @@
 {
     "containerDefinitions": [
         {
-            "name": "blueapp",
+            "name": "Springapp",
             "image": "876658555074.dkr.ecr.us-east-1.amazonaws.com/spring:latest",
             "cpu": 1024,
             "memory": 300,
@@ -15,5 +15,5 @@
             "essential": true
         }
     ],
-    "family": "blue-springapp"
+    "family": "springapp"
 }

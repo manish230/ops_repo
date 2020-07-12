@@ -1,0 +1,8 @@
+app_dir: "/home/ubuntu"
+blue_tg_arn: "arn:aws:elasticloadbalancing:us-east-1:876658555074:targetgroup/ops-blue/887fb9e6e6243a41"
+green_tg_arn: "arn:aws:elasticloadbalancing:us-east-1:876658555074:targetgroup/ops-green/94f51045d220f7f5"
+repo: git@github.com:opstree/spring3hibernate.git
+img_tagname: "ops/springapp:latest"
+ecr_tagname: "876658555074.dkr.ecr.us-east-1.amazonaws.com/spring:latest"
+task_def_file: "/home/ubuntu/ops_repo/bluegreen_deploy/task_definition.json"
+svc_def_file: "/home/ubuntu/ops_repo/bluegreen_deploy/blue-service.json"

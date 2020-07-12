@@ -3,10 +3,12 @@
 #  shell: "aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 876658555074.dkr.ecr.us-east-1.amazonaws.com"
 
 - name: tagging new image version with ecr image as latest
-  shell: "docker tag ops/springapp:latest 876658555074.dkr.ecr.us-east-1.amazonaws.com/spring:latest"  
+  shell: "docker tag {{ img_tagname }} {{ ecr_tagname }}" 
+# ops/springapp:latest 876658555074.dkr.ecr.us-east-1.amazonaws.com/spring:latest"  
 
 - name: pushing image
-  shell: "docker push 876658555074.dkr.ecr.us-east-1.amazonaws.com/spring:latest"
+  shell: "docker push {{ ecr_tagname }}"
+#876658555074.dkr.ecr.us-east-1.amazonaws.com/spring:latest"
 
 - name: "deploying to ecs green target"
   import_tasks: "deploy.yml"

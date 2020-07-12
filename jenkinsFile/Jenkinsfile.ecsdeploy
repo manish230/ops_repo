@@ -5,15 +5,16 @@ import java.text.SimpleDateFormat
     def server = "localhost"
     def server_name = server.replaceAll("\\-", "_")
     def timestamp = dateFormat.format(date)
-    def tweak = new trips3m()
+    def tweak = new opsdeploy()
 node{
     properties([
         parameters([
-            string(name: app_branch')
+            string(name: 'app_branch'),
+            string(name: 'role')
         ])
     ]) 
 
         if("${app_branch}"){
-            tweak.buildNdeploy("${app_branch}","spring3hibernate",server_name,timestamp)
+            tweak.buildNdeploy("${app_branch}","spring3hibernate",server_name,timestamp,"${role}")
         }
 }
