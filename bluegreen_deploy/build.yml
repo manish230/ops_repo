@@ -1,0 +1,19 @@
+---
+- name: creating release folder with timestamp 
+  file: 
+    path: "{{ app_dir }}/releases/{{ timestamp }}"
+    state: directory
+
+- name: cloning code form repo with branch= {{ branch }}
+  shell: "git clone {{ repo }}"
+  args: 
+    chdir: "{{ app_dir }}/releases/{{ timestamp }}"
+
+- name: creating new image from Dockerfile
+  shell: "sudo docker build -t ops/springapp:latest ."
+  args:
+    chdir: "{{ app_dir }}/releases/{{ timestamp }}/spring3hibernate"
+
+- name: push image to aws ecr 
+  import_tasks: "ecr_push.yml"
+

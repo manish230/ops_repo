@@ -1,0 +1,6 @@
+---
+- hosts: "{{ host }}"
+  become_user: ubuntu
+  tasks:
+  - name: "triggereing deployment and starting build task"
+    import_tasks: "build.yml"

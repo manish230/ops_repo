@@ -1,0 +1,19 @@
+{
+    "containerDefinitions": [
+        {
+            "name": "blueapp",
+            "image": "876658555074.dkr.ecr.us-east-1.amazonaws.com/spring:latest",
+            "cpu": 1024,
+            "memory": 300,
+            "portMappings": [
+        {
+          "hostPort": 0,
+          "protocol": "tcp",
+          "containerPort": 8080
+        }
+      ],
+            "essential": true
+        }
+    ],
+    "family": "blue-springapp"
+}

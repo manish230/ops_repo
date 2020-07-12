@@ -1,0 +1,18 @@
+{
+    "cluster": "ops-springapp",
+    "serviceName": "service-blue1",
+    "taskDefinition": "blue-springapp",
+    "loadBalancers": [
+        {
+            "targetGroupArn": "arn:aws:elasticloadbalancing:us-east-1:876658555074:targetgroup/ops-blue/887fb9e6e6243a41",
+            "containerName": "blueapp",
+            "containerPort": 8080
+        }
+    ],
+    "launchType": "EC2",
+    "schedulingStrategy": "REPLICA",
+    "deploymentController": {
+        "type": "ECS"
+    },
+    "desiredCount": 1
+}

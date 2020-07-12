@@ -1,0 +1,7 @@
+---
+
+- name: registering new tasak definition
+  shell: "aws ecs register-task-definition --cli-input-json file:///home/ubuntu/ops_repo/bluegreen_deploy/task_definition.json"
+
+- name: creating new service 
+  shell: "aws ecs create-service  --cli-input-json file:///home/ubuntu/ops_repo/bluegreen_deploy/blue-service.json"
