@@ -7,3 +7,6 @@
 
 - name: creating new service 
   shell: "aws ecs create-service  --cli-input-json file://{{ svc_def_file }}"
+
+- name: modifying lister 
+  shell: "aws elbv2 modify-rule --actions Type=forward,TargetGroupArn=arn:aws:elasticloadbalancing:us-east-1:876658555074:targetgroup/ops-green/94f51045d220f7f5 --rule-arn arn:aws:elasticloadbalancing:us-east-1:876658555074:listener-rule/app/ops-lb/820104c61d31b7d3/2d8acd27d08b7959/04206901ab721cf2"
